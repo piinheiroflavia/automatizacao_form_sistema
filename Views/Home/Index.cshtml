@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+
+<h3 id="recordsTitle" style="margin-top:10px;">Seja Bem vindo @ViewData["UserName"]</h3>
+<h5>
+    Acesse <strong> <a asp-controller="Login" asp-action="RedirectToExternalSite">aqui</a> </strong>para ser encaminhado a página de roteiro dinâmico
+</h5> 
+<hr>
+
+<div id="tableContainer" class="panel panel-inverse">
+        <h6 class="panel-title" style="width: 100% !important;">Mapa de Cobertura</h6>
+
+    <iframe title="cobertura" src="https://mapadecobertura.vivo.com.br" style="border:0px;" width="100%" height="600"></iframe>
+</div>
+

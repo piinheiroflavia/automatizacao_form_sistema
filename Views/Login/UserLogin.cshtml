@@ -1,0 +1,89 @@
+@model SMAP.Models.UserView;
+@{
+  Layout = "_BlankLayout";
+  ViewData["Title"] = "Login Cover - Pages";
+}
+
+@section VendorStyles {
+<link rel="stylesheet" href="~/vendor/libs/&#64;form-validation/umd/styles/index.min.css" />
+}
+
+@section VendorScripts {
+<script src="~/vendor/libs/&#64;form-validation/umd/bundle/popular.min.js"></script>
+<script src="~/vendor/libs/&#64;form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+<script src="~/vendor/libs/&#64;form-validation/umd/plugin-auto-focus/index.min.js"></script>
+}
+
+@section PageStyles {
+<link rel="stylesheet" href="~/vendor/css/pages/page-auth.css">
+}
+
+@section PageScripts {
+<script src="~/js/pages-auth.js"></script>
+}
+@* ************** Content ************** *@
+
+<div class="authentication-wrapper authentication-cover">
+  <!-- Logo -->
+  <a href="/" class="auth-cover-brand d-flex align-items-center gap-2">
+    @* <span class="app-brand-logo demo">@await Html.PartialAsync("../_Partials/_Macros")</span> *@
+   @*  <span class="app-brand-text demo text-heading fw-bold">@TempData.Peek("appName")</span> *@
+  </a>
+  <!-- /Logo -->
+  <div class="authentication-inner row m-0">
+    <!-- /Left Section -->
+    <div class="d-none d-lg-flex col-lg-7 col-xl-8 ">
+            <img src="/img/fundo1.jpg" class="" alt="" style="width:100%; margin: -12px;">
+@*    <img src="~/img/illustrations/auth-login-illustration-light.png" class="auth-cover-illustration w-100" alt="auth-illustration" data-app-light-img="illustrations/auth-login-illustration-light.png" data-app-dark-img="illustrations/auth-login-illustration-dark.png" />
+      <img src="~/img/illustrations/auth-cover-login-mask-light.png" class="authentication-image" alt="mask" data-app-light-img="illustrations/auth-cover-login-mask-light.png" data-app-dark-img="illustrations/auth-cover-login-mask-dark.png" /> *@
+    </div>
+    <!-- /Left Section -->
+
+    <!-- Login -->
+    <div class="d-flex col-12 col-lg-5 col-xl-4 align-items-center authentication-bg position-relative py-sm-5 px-4 py-4">
+      <div class="w-px-400 mx-auto pt-5 pt-lg-0">
+       @*  <h4 class="mb-2">Telecall</h4> *@
+          <img src="/img/Logo_Telecall.png" style="width: 70%; margin-bottom: 10px;" />
+          <p class="mb-4">Sistema de Mapeamento para Atendimento e Projeto</p>
+
+        <form method="post" action="/Login/UserLogin" id="account" class="mb-3">
+          <div class="form-floating form-floating-outline mb-3">
+           <input asp-for="Username" class="form-control form-control-lg" id="email" name="username" placeholder="usuário" />
+           @*  <input type="text" class="form-control" id="email" name="email-username" placeholder="digite seu login" autofocus> *@
+            <label for="email">login</label>
+          </div>
+          <div class="mb-3">
+            <div class="form-password-toggle">
+              <div class="input-group input-group-merge">
+                <div class="form-floating form-floating-outline">
+                <input asp-for="Password" type="password" id="password" name="password" class="form-control form-control-lg" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" />
+                 @*   <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" /> *@
+                  <label for="password">senha</label>
+                </div>
+                <span class="input-group-text cursor-pointer"><i class="mdi mdi-eye-off-outline"></i></span>
+              </div>
+            </div>
+          </div>
+     @*      <div class="mb-3 d-flex justify-content-between">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="remember-me">
+              <label class="form-check-label" for="remember-me">
+                Remember Me
+              </label>
+            </div>
+            <a href="/Auth/ForgotPasswordCover" class="float-end mb-1">
+              <span>Forgot Password?</span>
+            </a>
+          </div> *@
+          <button type="submit" class="btn btn-primary d-grid w-100">
+            Entrar
+          </button>
+        </form>
+        @* <p class="text-grey-darker" style="display:flex; justify-content:center; margin:30px">
+		  &copy; Telecall 2024
+		</p> *@
+      </div>
+    </div>
+    <!-- /Login -->
+  </div>
+</div>

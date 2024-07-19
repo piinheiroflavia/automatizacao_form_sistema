@@ -1,0 +1,32 @@
+@{
+  TempData.Keep();
+  string? currentPage =  ViewContext.HttpContext.Request.Path;
+  ViewData["containerNav"] ??= "container-fluid";
+}
+
+<!-- Menu -->
+<aside id="layout-menu" class="layout-menu-horizontal menu-horizontal  menu bg-menu-theme flex-grow-0">
+  <div class='@ViewData["containerNav"] d-flex h-100'>
+    @* ! Starter Kit menu-items *@
+    <ul class="menu-inner">
+      <li class='menu-item@(currentPage == "/" ? " active" : "")'>
+        <a asp-controller="Home" asp-action="Index" class="menu-link">
+          <i class="menu-icon tf-icons mdi mdi-home-outline"></i>
+          <div data-i18n="Home">Homee</div>
+        </a>
+      </li>
+      <li class='menu-item@(currentPage == "/Pages/MiscNotAuthorized" ? " active" : "")'>
+              <a asp-controller="Pages" asp-action="MiscNotAuthorized" class="menu-link" target="_blank">
+                <div data-i18n="Not Authorized">Not Authorized</div>
+              </a>
+            </li>
+      <li class='menu-item@(currentPage == "/Page2" ? " active" : "")'>
+        <a asp-controller="Page2" asp-action="Index" class="menu-link">
+          <i class="menu-icon tf-icons mdi mdi-file-outline"></i>
+          <div data-i18n="Page2">Página</div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
+<!-- / Menu -->
